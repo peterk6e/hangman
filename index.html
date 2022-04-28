@@ -20,10 +20,14 @@
   <body>
     <div class="container">
       <h1>- HANGMAN -</h1>
-      <div class="instruction">--Find the hidden word - Enter a letter--</div>
+      <div class="instruction">
+        -- Find the hidden word - Enter a letter --
+        <h2 id="message"></h2>
+      </div>
       <div class="svg-block">
         <svg height="350" width="350">
           <circle
+            id="head"
             cx="200"
             cy="80"
             r="20"
@@ -31,7 +35,7 @@
             stroke-width="4"
             fill="white"
           />
-          <line x1="200" y1="100" x2="200" y2="150" />
+          <line id="body" x1="200" y1="100" x2="200" y2="150" />
           <line id="armL" x1="200" y1="120" x2="170" y2="140" />
           <line id="armR" x1="200" y1="120" x2="230" y2="140" />
           <line id="legL" x1="200" y1="150" x2="180" y2="190" />
@@ -43,14 +47,14 @@
         </svg>
       </div>
       <div class="info-block">
+        <div class="word" id="word"></div>
         <div class="wrong-letters">
-          WRONG LETTERS:
+          Wrong:
           <span id="wrong-letters"></span>
         </div>
-        <div class="word" id="word">_ _ _ _ _ _ _ _</div>
       </div>
     </div>
-
+    <input type="text" onkeydown="play()" />
     <script src="script.js"></script>
   </body>
 </html>

@@ -21,9 +21,6 @@ body {
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
-svg {
-}
-
 line {
   stroke: black;
   stroke-width: 4;
@@ -35,23 +32,35 @@ line {
 }
 
 .info-block {
-    border-left: 1px solid black;
-
-    text-align: center;
+  border-left: 1px solid black;
+  text-align: center;
   padding: 40px;
   display: inline-block;
 }
 .wrong-letters {
-  height: 300px;
+  max-width: 350px;
+  padding-top: 200px;
 }
 .word {
   font-size: 40px;
   padding: 5px 15px;
 }
 
-h1 {text-align: center;}
+h1 {
+  text-align: center;
+}
 .instruction {
-    text-align: center;
-    margin: 40px;
-    color: gray;
+  text-align: center;
+  margin: 40px;
+  color: gray;
+}
+
+.lost {
+  color: red;
+  font-size: 40px;
+}
+
+.won {
+  font-size: 40px;
+  color: green;
 }
