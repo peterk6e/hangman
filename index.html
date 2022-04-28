@@ -23,6 +23,7 @@
       <div class="instruction">
         -- Find the hidden word - Enter a letter --
         <h2 id="message"></h2>
+        <button class="restart" onclick="init()">Restart</button>
       </div>
       <div class="svg-block">
         <svg height="350" width="350">
@@ -54,7 +55,7 @@
         </div>
       </div>
     </div>
-    <input type="text" onkeydown="play()" />
+    <input type="text" onkeydown="play()" hidden/>
     <script src="script.js"></script>
   </body>
 </html>

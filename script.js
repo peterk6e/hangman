@@ -6,29 +6,38 @@ const rightLeg = document.getElementById("legR");
 const leftLeg = document.getElementById("legL");
 const wrongLettersList = document.getElementById("wrong-letters");
 const hiddenWord = document.getElementById("word");
-const message = document.getElementById('message');
+const message = document.getElementById("message");
 
-
-head.style.visibility = "hidden";
-body.style.visibility = "hidden";
-rightArm.style.visibility = "hidden";
-leftArm.style.visibility = "hidden";
-rightLeg.style.visibility = "hidden";
-leftLeg.style.visibility = "hidden";
-
-const words = ["test", "hello", "world"];
-const word = words[1];
+const words = ["programming", "tomorrow", "asynchronous", "congratulations"];
 const hiddenWordArray = [];
+var word = "";
 const wrongLettersSet = new Set();
 const goodLettersSet = new Set();
 
 init();
 function init() {
+  wrongLettersSet.clear();
+  goodLettersSet.clear();
+  hiddenWordArray.splice(0);
+  hiddenWord.className = "";
+
+  head.style.visibility = "hidden";
+  body.style.visibility = "hidden";
+  rightArm.style.visibility = "hidden";
+  leftArm.style.visibility = "hidden";
+  rightLeg.style.visibility = "hidden";
+  leftLeg.style.visibility = "hidden";
+
+  word = words[Math.floor(Math.random() * words.length)];
   [...word].forEach(() => {
     hiddenWordArray.push("_ ");
   });
+
+  wrongLettersList.innerText = "";
+  message.innerText ="";
   updateWord();
 }
+
 //Play
 document.addEventListener("keydown", (event) => {
   if (isLetter(event) && !isAlreadyTypedLetter(event.key)) {
@@ -67,7 +76,7 @@ function checkEndGame() {
     hiddenWord.innerText = word.toUpperCase();
     hiddenWord.className = "lost";
     message.innerText = "sorry, you lost...";
-  } else if (!hiddenWordArray.includes("_ ")){
+  } else if (!hiddenWordArray.includes("_ ")) {
     hiddenWord.className = "won";
     message.innerText = "Congrats, you win!!";
   }
@@ -108,6 +117,5 @@ function updateSVG() {
       leftLeg.style.visibility = "";
       break;
     default:
-    // code block
   }
 }
